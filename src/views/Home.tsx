@@ -1,9 +1,7 @@
 import React from "react";
 import { getAuth, signOut } from "firebase/auth";
 
-export interface IHomeProps {}
-
-const Home: React.FunctionComponent<IHomeProps> = (props) => {
+const Home: React.FunctionComponent = (props) => {
   const auth = getAuth();
 
   return (
