@@ -10,15 +10,15 @@ export interface IListUsers {
   };
 }
 
-export interface IUsersAction {
-  type: string;
-  data: IListUsers | IUser;
-}
-
 export interface IUser {
   id: number;
   email: string;
   first_name: string;
   last_name: string;
   avatar: string;
+}
+
+export interface IUsersAction {
+  type: string;
+  data: IListUsers | IUser;
 }

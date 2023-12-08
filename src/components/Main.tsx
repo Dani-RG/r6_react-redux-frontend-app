@@ -5,11 +5,16 @@ import { IListUsers, IUser } from "../utils/interfaces";
 
 const Main: React.FunctionComponent = (props) => {
   const dispatch = useDispatch();
+
+  // LIST USERS
   const listUsers: IListUsers | unknown = useSelector(
     (state) => (state as any)?.listUsers
   );
-  console.log("data in main", listUsers);
-  const user = {};
+  console.log("data in listUsers", listUsers);
+
+  // USER
+  const user: IUser | unknown = useSelector((state) => (state as any)?.user);
+  console.log("data in user", user);
 
   return (
     <div>
