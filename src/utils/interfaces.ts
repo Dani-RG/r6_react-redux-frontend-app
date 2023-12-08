@@ -18,6 +18,13 @@ export interface IUser {
   avatar: string;
 }
 
+export interface INewUser {
+  name: string;
+  job: string;
+  id?: string;
+  createdAt?: string;
+}
+
 export interface IUsersAction {
   type: string;
   data: IListUsers | IUser;

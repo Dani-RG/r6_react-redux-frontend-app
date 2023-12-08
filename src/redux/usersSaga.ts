@@ -1,18 +1,21 @@
 import { takeEvery, put } from "redux-saga/effects";
+import axios, { AxiosResponse } from "axios";
 import {
   GET_LIST_USERS,
   GET_USER,
   SET_LIST_USERS,
   SET_USER,
+  SET_CREATE_USER,
+  CREATE_USER,
 } from "./constants";
-import { IUser } from "../utils/interfaces";
+import { INewUser, IUser } from "../utils/interfaces";
 
 function* getListUsers() {
   try {
-    const response: Response = yield fetch(
+    const response: AxiosResponse<IUser[]> = yield axios.get(
       "https://reqres.in/api/users?page=2"
     );
-    const listUsers: IUser[] = yield response.json();
+    const listUsers: IUser[] = response.data;
     console.log("get list users called", listUsers);
     yield put({ type: SET_LIST_USERS });
   } catch (error) {
@@ -22,8 +25,10 @@ function* getListUsers() {
 
 function* getUser() {
   try {
-    const response: Response = yield fetch("https://reqres.in/api/users/2");
-    const user: IUser = yield response.json();
+    const response: AxiosResponse<IUser> = yield axios.get(
+      "https://reqres.in/api/users/2"
+    );
+    const user: IUser = response.data;
     console.log("get user called", user);
     yield put({ type: SET_USER });
   } catch (error) {
@@ -31,9 +36,24 @@ function* getUser() {
   }
 }
 
+function* createUser(action: { type: typeof CREATE_USER; userData: INewUser }) {
+  try {
+    const response: AxiosResponse<IUser> = yield axios.post(
+      "https://reqres.in/api/users",
+      action.userData
+    );
+    const createdUser: IUser = response.data;
+    console.log("create user called", createdUser);
+    yield put({ type: SET_CREATE_USER });
+  } catch (error) {
+    console.error("Error creating user", error);
+  }
+}
+
 function* usersSaga() {
   yield takeEvery(GET_LIST_USERS, getListUsers);
   yield takeEvery(GET_USER, getUser);
+  yield takeEvery(CREATE_USER, createUser);
 }
 
 export default usersSaga;

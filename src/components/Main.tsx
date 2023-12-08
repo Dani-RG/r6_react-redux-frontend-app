@@ -12,7 +12,7 @@ const Main: React.FunctionComponent = (props) => {
   );
   console.log("data in listUsers", listUsers);
 
-  // USER
+  // GET USER
   const user: IUser | unknown = useSelector((state) => (state as any)?.user);
   console.log("data in user", user);
 
