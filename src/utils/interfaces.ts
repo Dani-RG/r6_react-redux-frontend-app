@@ -10,9 +10,9 @@ export interface IListUsers {
   };
 }
 
-export interface IListUsersAction {
+export interface IUsersAction {
   type: string;
-  data: IListUsers;
+  data: IListUsers | IUser;
 }
 
 export interface IUser {

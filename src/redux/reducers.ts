@@ -1,11 +1,15 @@
-import { IListUsersAction } from "../utils/interfaces";
-import { GET_LIST_USERS } from "./constants";
+import { IUsersAction } from "../utils/interfaces";
+import { GET_LIST_USERS, GET_USER } from "./constants";
 
-export const listData = (data = [], action: IListUsersAction) => {
-  console.log("reducer called", action);
-  if (action.type === GET_LIST_USERS) {
-    return data;
-  } else {
-    return "no action called";
+export const usersData = (data = [], action: IUsersAction) => {
+  switch (action.type) {
+    case GET_LIST_USERS:
+      console.log("GET_LIST_USERS condition", action);
+      return [action.data, ...data];
+    case GET_USER:
+      console.log("GET_USER condition", action);
+      return action.data;
+    default:
+      return [];
   }
 };
