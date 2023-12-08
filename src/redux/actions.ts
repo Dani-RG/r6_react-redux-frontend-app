@@ -8,15 +8,15 @@ import {
   SET_EDIT_USER,
 } from "./constants";
 
-export const getListUsers = (data: IListUsers) => {
-  console.log("get list users called", data);
+export const getListUsers = (userData: IListUsers) => {
+  console.log("get list users called", userData);
   return {
     type: GET_LIST_USERS,
   };
 };
 
-export const getUser = (data: IUser) => {
-  console.log("get user called", data);
+export const getUser = (userData: IUser) => {
+  console.log("get user called", userData);
   return {
     type: GET_USER,
   };

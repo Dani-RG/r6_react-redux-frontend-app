@@ -38,5 +38,5 @@ export interface IEditUserProps {
 
 export interface IUsersAction {
   type: string;
-  data: IListUsers | IUser;
+  userData: IListUsers | IUser;
 }
