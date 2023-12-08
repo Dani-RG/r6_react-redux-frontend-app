@@ -5,14 +5,16 @@ import {
   GET_USER,
   SET_LIST_USERS,
   SET_USER,
-  SET_CREATE_USER,
   CREATE_USER,
+  SET_CREATE_USER,
+  EDIT_USER,
+  SET_EDIT_USER,
 } from "./constants";
-import { INewUser, IUser } from "../utils/interfaces";
+import { INewUser, IUser, IEditedUser } from "../utils/interfaces";
 
 function* getListUsers() {
   try {
-    const response: AxiosResponse<IUser[]> = yield axios.get(
+    const response: AxiosResponse = yield axios.get(
       "https://reqres.in/api/users?page=2"
     );
     const listUsers: IUser[] = response.data;
@@ -25,7 +27,7 @@ function* getListUsers() {
 
 function* getUser() {
   try {
-    const response: AxiosResponse<IUser> = yield axios.get(
+    const response: AxiosResponse = yield axios.get(
       "https://reqres.in/api/users/2"
     );
     const user: IUser = response.data;
@@ -38,11 +40,11 @@ function* getUser() {
 
 function* createUser(action: { type: typeof CREATE_USER; userData: INewUser }) {
   try {
-    const response: AxiosResponse<IUser> = yield axios.post(
+    const response: AxiosResponse = yield axios.post(
       "https://reqres.in/api/users",
       action.userData
     );
-    const createdUser: IUser = response.data;
+    const createdUser: INewUser = response.data;
     console.log("create user called", createdUser);
     yield put({ type: SET_CREATE_USER });
   } catch (error) {
@@ -50,10 +52,25 @@ function* createUser(action: { type: typeof CREATE_USER; userData: INewUser }) {
   }
 }
 
+function* editUser(action: { type: typeof EDIT_USER; userData: IEditedUser }) {
+  try {
+    const response: AxiosResponse = yield axios.patch(
+      "https://reqres.in/api/users/3",
+      action.userData
+    );
+    const editedUser: IEditedUser = response.data;
+    console.log("edited user called", editedUser);
+    yield put({ type: SET_EDIT_USER });
+  } catch (error) {
+    console.error("Error editing user", error);
+  }
+}
+
 function* usersSaga() {
   yield takeEvery(GET_LIST_USERS, getListUsers);
   yield takeEvery(GET_USER, getUser);
   yield takeEvery(CREATE_USER, createUser);
+  yield takeEvery(EDIT_USER, editUser);
 }
 
 export default usersSaga;

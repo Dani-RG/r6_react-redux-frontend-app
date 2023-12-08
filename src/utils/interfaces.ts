@@ -25,6 +25,17 @@ export interface INewUser {
   createdAt?: string;
 }
 
+export interface IEditedUser {
+  name: string;
+  job: string;
+  id?: string;
+  updatedAt?: string;
+}
+
+export interface IEditUserProps {
+  userId: string;
+}
+
 export interface IUsersAction {
   type: string;
   data: IListUsers | IUser;

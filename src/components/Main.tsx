@@ -2,9 +2,12 @@ import React from "react";
 import { getListUsers, getUser } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { IListUsers, IUser } from "../utils/interfaces";
+import EditUser from "./EditUser";
+import { useParams } from "react-router-dom";
 
 const Main: React.FunctionComponent = (props) => {
   const dispatch = useDispatch();
+  const { userId } = useParams();
 
   // LIST USERS
   const listUsers: IListUsers | unknown = useSelector(
@@ -22,6 +25,7 @@ const Main: React.FunctionComponent = (props) => {
         Get List Users
       </button>
       <button onClick={() => dispatch(getUser(user as IUser))}>Get User</button>
+      <EditUser userId={`${userId}`} />
     </div>
   );
 };
