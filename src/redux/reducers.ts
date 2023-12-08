@@ -1,4 +1,4 @@
-import { IUsersAction } from "../utils/interfaces";
+import { IUser, IUsersAction } from "../utils/interfaces";
 import {
   SET_LIST_USERS,
   SET_USER,
@@ -9,17 +9,23 @@ import {
 export const usersData = (userData = [], action: IUsersAction) => {
   switch (action.type) {
     case SET_LIST_USERS:
-      console.log("SET_LIST_USERS condition", action);
-      return action.userData;
+      return action.userData || userData;
     case SET_USER:
-      console.log("SET_USER condition", action);
-      return action.userData;
+      return action.userData || userData;
     case SET_CREATE_USER:
-      console.log("SET_CREATE_USER condition", action);
-      return action.userData;
+      return [...userData, action.userData];
     case SET_EDIT_USER:
-      console.log("SET_EDIT_USER condition", action);
-      return action.userData;
+      if (!action.userData || !action.userData.id) {
+        return userData;
+      }
+
+      return userData.map((user: IUser) => {
+        if (user.id === action.userData.id) {
+          return { ...user, ...action.userData };
+        }
+        return user;
+      });
+
     default:
       return userData;
   }
