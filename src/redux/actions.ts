@@ -3,23 +3,16 @@ import {
   GET_LIST_USERS,
   GET_USER,
   CREATE_USER,
-  SET_LIST_USERS,
   SET_CREATE_USER,
   EDIT_USER,
   SET_EDIT_USER,
 } from "./constants";
 
 export const getListUsers = () => {
-  console.log("get list users called");
   return {
     type: GET_LIST_USERS,
   };
 };
-
-export const setListUsers = (data: any) => ({
-  type: SET_LIST_USERS,
-  data,
-});
 
 export const getUser = (data: IUser) => {
   console.log("get user called", data);

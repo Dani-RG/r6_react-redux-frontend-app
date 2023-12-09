@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { editUser } from "../redux/actions";
-import { IEditedUser, IEditUserProps } from "../utils/interfaces";
+import { IEditedUser } from "../utils/interfaces";
+import { useParams } from "react-router-dom";
 
-const EditUser: React.FC<IEditUserProps> = ({ userId }) => {
+const EditUser: React.FC = () => {
   const dispatch = useDispatch();
+  const { userId } = useParams();
 
   const initialState: IEditedUser = {
     name: "",
@@ -23,8 +25,13 @@ const EditUser: React.FC<IEditUserProps> = ({ userId }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(editUser(userId, userData));
-    setUserData(initialState);
+    if (userId) {
+      dispatch(editUser(userId, userData));
+      setUserData(initialState);
+      console.log("user Data", userData);
+    } else {
+      console.error("userId is undefined");
+    }
   };
 
   return (

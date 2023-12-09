@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUser } from "../redux/actions";
 import { INewUser } from "../utils/interfaces";
@@ -30,7 +30,10 @@ const CreateUser: React.FC = () => {
   const newUser: INewUser | unknown = useSelector(
     (state: any) => state?.newUser
   );
-  console.log("data in new user", newUser);
+
+  useEffect(() => {
+    console.log("data in new user", newUser);
+  }, [newUser]);
 
   return (
     <form onSubmit={handleSubmit}>

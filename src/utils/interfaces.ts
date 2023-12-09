@@ -33,11 +33,11 @@ export interface IEditedUser {
   updatedAt?: string;
 }
 
-export interface IEditUserProps {
-  userId: string;
-}
-
 export interface IUsersAction {
   type: string;
   data: IUser;
+}
+
+export interface IUserCardProps {
+  user: IUser;
 }
