@@ -19,7 +19,6 @@ function* getListUsers() {
       "https://reqres.in/api/users?page=2"
     );
     const listUsers: any = response.data.data;
-    console.log("get list users called", listUsers);
     yield put({ type: SET_LIST_USERS, data: listUsers });
   } catch (error) {
     console.error("Error fetching list of users", error);
@@ -27,14 +26,12 @@ function* getListUsers() {
 }
 
 function* getUser(action: Action) {
-  console.log("action in getUser:", action);
   try {
     const userId = (action as any).data;
     const response: AxiosResponse = yield axios.get(
       `https://reqres.in/api/users/${userId}`
     );
     const user: IUser = response.data.data;
-    console.log("get user called in saga", user);
     yield put({ type: SET_USER, data: user });
   } catch (error) {
     console.error("Error fetching user", error);
@@ -43,12 +40,14 @@ function* getUser(action: Action) {
 
 function* createUser(action: Action) {
   try {
+    console.log("ACTION", action);
+    console.log("ACTION.DATA", (action as any).data);
     const response: AxiosResponse = yield axios.post(
       "https://reqres.in/api/users",
       (action as any).data
     );
     const createdUser: INewUser = response.data;
-    console.log("create user called", createdUser);
+    console.log("CREATED USER", createdUser);
     yield put({ type: SET_CREATE_USER });
   } catch (error) {
     console.error("Error creating user", error);

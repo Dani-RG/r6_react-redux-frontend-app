@@ -15,7 +15,6 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
       </div>
       <button
         onClick={() => {
-          console.log("user.id:", user.id);
           dispatch(getUser(user.id));
         }}
       >

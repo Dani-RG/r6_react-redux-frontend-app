@@ -5,12 +5,14 @@ import Login from "./views/Login";
 import { initializeApp } from "firebase/app";
 import { config } from "./config/firebaseConfig";
 import AuthRoute from "./components/AuthRoute";
+import Navbar from "./components/Navbar";
 
 initializeApp(config.firebaseConfig);
 
 const App: React.FunctionComponent = (props) => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route
           path="/"

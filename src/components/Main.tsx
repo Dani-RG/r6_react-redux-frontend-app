@@ -13,7 +13,6 @@ const Main: React.FunctionComponent = () => {
   const listUsersArray: IListUsers | undefined = useSelector(
     (state) => (state as any)?.usersData.listUsers
   );
-  console.log("data in state.userData.listUsers:", listUsersArray);
 
   useEffect(() => {
     dispatch(getListUsers());

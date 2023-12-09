@@ -15,7 +15,6 @@ export const getListUsers = () => {
 };
 
 export const getUser = (data: IUser) => {
-  console.log("get user called", data);
   return {
     type: GET_USER,
     data: data,
@@ -23,10 +22,10 @@ export const getUser = (data: IUser) => {
 };
 
 export const createUser = (data: INewUser) => {
-  console.log("create user called", data);
+  console.log("ACTION CREATE USER:", data);
   return {
     type: CREATE_USER,
-    data,
+    data: data,
   };
 };
 

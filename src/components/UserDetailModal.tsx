@@ -4,7 +4,7 @@ import { IUser } from "../utils/interfaces";
 
 const UserDetailModal: React.FunctionComponent = () => {
   const selectedUser: IUser | undefined = useSelector(
-    (state) => (state as any)?.usersData.user
+    (state) => (state as any).usersData.user
   );
   console.log("data in state.userData.user:", selectedUser);
 

@@ -16,10 +16,9 @@ export const usersData = (state = initialState, action: IUsersAction) => {
     case SET_LIST_USERS:
       return { ...state, listUsers: action.data };
     case SET_USER:
-      console.log("SET USER", { ...state, user: action.data });
       return { ...state, user: action.data };
     case SET_CREATE_USER:
-      return state;
+      return { userDefinition: action.data, ...state };
     case SET_EDIT_USER:
       if (!action.data.id) {
         return state;
@@ -35,7 +34,6 @@ export const usersData = (state = initialState, action: IUsersAction) => {
       };
 
     default:
-      console.log("case default, state:", state);
       return state;
   }
 };

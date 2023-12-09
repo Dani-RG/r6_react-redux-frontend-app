@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { createUser } from "../redux/actions";
 import { INewUser } from "../utils/interfaces";
 
@@ -11,11 +11,11 @@ const CreateUser: React.FC = () => {
     job: "",
   };
 
-  const [userData, setUserData] = useState(initialState);
+  const [userDefinition, setUserDefinition] = useState(initialState);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUserData((prevData) => ({
+    setUserDefinition((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -23,17 +23,10 @@ const CreateUser: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(createUser(userData));
-    setUserData(initialState);
+    dispatch(createUser(userDefinition));
+    console.log("USER DEFINITION", userDefinition);
+    setUserDefinition(initialState);
   };
-
-  const newUser: INewUser | unknown = useSelector(
-    (state: any) => state?.newUser
-  );
-
-  useEffect(() => {
-    console.log("data in new user", newUser);
-  }, [newUser]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -42,7 +35,7 @@ const CreateUser: React.FC = () => {
         <input
           type="text"
           name="name"
-          value={userData.name}
+          value={userDefinition.name}
           onChange={handleInputChange}
         />
       </label>
@@ -51,7 +44,7 @@ const CreateUser: React.FC = () => {
         <input
           type="text"
           name="job"
-          value={userData.job}
+          value={userDefinition.job}
           onChange={handleInputChange}
         />
       </label>
