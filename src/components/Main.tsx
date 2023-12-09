@@ -11,13 +11,20 @@ const Main: React.FunctionComponent = () => {
   const dispatch = useDispatch();
 
   const listUsersArray: IListUsers | undefined = useSelector(
-    (state) => (state as any)?.usersData.listUsers
+    (state) => (state as any).usersData.listUsers
   );
+  console.log("listUsersArray", listUsersArray);
 
   useEffect(() => {
     dispatch(getListUsers());
     // eslint-disable-next-line
   }, []);
+
+  // useEffect(() => {
+  //   console.log("lengthOflistUsersArray", listUsersArray?.length);
+  //   // eslint-disable-next-line
+  // }, [listUsersArray?.length]);
+  console.log("lengthOflistUsersArray", listUsersArray?.length);
 
   return (
     <div>

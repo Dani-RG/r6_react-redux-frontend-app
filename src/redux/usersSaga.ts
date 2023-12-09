@@ -13,12 +13,14 @@ import {
 import { INewUser, IUser, IEditedUser } from "../utils/interfaces";
 import { Action } from "redux";
 
+let listUsers: any;
+
 function* getListUsers() {
   try {
     const response: AxiosResponse = yield axios.get(
-      "https://reqres.in/api/users?page=2"
+      "https://reqres.in/api/users?page=1"
     );
-    const listUsers: any = response.data.data;
+    listUsers = response.data.data;
     yield put({ type: SET_LIST_USERS, data: listUsers });
   } catch (error) {
     console.error("Error fetching list of users", error);
@@ -49,6 +51,9 @@ function* createUser(action: Action) {
     const createdUser: INewUser = response.data;
     console.log("CREATED USER", createdUser);
     yield put({ type: SET_CREATE_USER });
+    listUsers = [createdUser, ...listUsers];
+    yield put({ type: SET_LIST_USERS, data: listUsers });
+    console.log("LIST WITH NEW", listUsers);
   } catch (error) {
     console.error("Error creating user", error);
   }
