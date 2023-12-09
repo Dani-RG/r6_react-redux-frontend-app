@@ -12,29 +12,6 @@ import {
 } from "./constants";
 import { INewUser, IUser, IEditedUser } from "../utils/interfaces";
 
-// function* getListUsers() {
-//   try {
-//     const response: AxiosResponse = yield axios.get(
-//       "https://reqres.in/api/users?page=2"
-//     );
-//     const listUsers: any = response.data.data;
-//     console.log("get list users called", listUsers);
-//     yield put({ type: SET_LIST_USERS, data: listUsers });
-//   } catch (error) {
-//     console.error("Error fetching list of users", error);
-//   }
-// }
-/////////////////////////////////////
-// function* getListUsers() {
-//   try {
-//     const response: AxiosResponse = yield axios.get("https://reqres.in/api/users?page=2");
-//     const listUsers: any = response.data.data;
-//     console.log("get list users called", listUsers);
-//     yield put(setListUsers(listUsers)); // Dispatch action with data
-//   } catch (error) {
-//     console.error("Error fetching list of users", error);
-//   }
-// }
 function* getListUsers() {
   try {
     const response: AxiosResponse = yield axios.get(
@@ -42,7 +19,7 @@ function* getListUsers() {
     );
     const listUsers: any = response.data.data;
     console.log("get list users called", listUsers);
-    yield put({ type: SET_LIST_USERS, data: listUsers }); // Dispatch action with data
+    yield put({ type: SET_LIST_USERS, data: listUsers });
   } catch (error) {
     console.error("Error fetching list of users", error);
   }
