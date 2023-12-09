@@ -1,4 +1,5 @@
 export interface IListUsers {
+  [x: string]: any;
   page: number;
   per_page: number;
   total: number;
@@ -38,5 +39,5 @@ export interface IEditUserProps {
 
 export interface IUsersAction {
   type: string;
-  userData: IUser;
+  data: IUser;
 }

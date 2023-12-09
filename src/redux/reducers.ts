@@ -6,27 +6,35 @@ import {
   SET_EDIT_USER,
 } from "./constants";
 
-export const usersData = (userData = [], action: IUsersAction) => {
+const initialState = {
+  listUsers: [],
+  user: null,
+};
+
+export const usersData = (state = initialState, action: IUsersAction) => {
   switch (action.type) {
     case SET_LIST_USERS:
-      return action.userData || userData;
+      return { ...state, listUsers: action.data };
     case SET_USER:
-      return action.userData || userData;
+      return { ...state, user: action.data };
     case SET_CREATE_USER:
-      return [...userData, action.userData];
+      return state;
     case SET_EDIT_USER:
-      if (!action.userData || !action.userData.id) {
-        return userData;
+      if (!action.data.id) {
+        return state;
       }
-
-      return userData.map((user: IUser) => {
-        if (user.id === action.userData.id) {
-          return { ...user, ...action.userData };
-        }
-        return user;
-      });
+      return {
+        ...state,
+        listUsers: state.listUsers.map((user: IUser) => {
+          if (user.id === action.data.id) {
+            return { ...user, ...action.data };
+          }
+          return user;
+        }),
+      };
 
     default:
-      return userData;
+      console.log("case default, user data:", state);
+      return state;
   }
 };
