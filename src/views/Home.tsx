@@ -7,7 +7,6 @@ const Home: React.FunctionComponent = (props) => {
 
   return (
     <div>
-      <p>Home</p>
       <Main />
       <button onClick={() => signOut(auth)}>Sign out</button>
     </div>

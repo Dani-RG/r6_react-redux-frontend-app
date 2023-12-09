@@ -1,4 +1,4 @@
-import { INewUser, IUser, IEditedUser } from "../utils/interfaces";
+import { INewUser, IEditedUser, IUser } from "../utils/interfaces";
 import {
   GET_LIST_USERS,
   GET_USER,
@@ -18,6 +18,7 @@ export const getUser = (data: IUser) => {
   console.log("get user called", data);
   return {
     type: GET_USER,
+    data: data,
   };
 };
 

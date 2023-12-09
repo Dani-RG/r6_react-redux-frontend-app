@@ -16,6 +16,7 @@ export const usersData = (state = initialState, action: IUsersAction) => {
     case SET_LIST_USERS:
       return { ...state, listUsers: action.data };
     case SET_USER:
+      console.log("SET USER", { ...state, user: action.data });
       return { ...state, user: action.data };
     case SET_CREATE_USER:
       return state;
@@ -34,7 +35,7 @@ export const usersData = (state = initialState, action: IUsersAction) => {
       };
 
     default:
-      console.log("case default, user data:", state);
+      console.log("case default, state:", state);
       return state;
   }
 };

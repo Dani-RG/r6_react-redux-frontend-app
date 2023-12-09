@@ -22,14 +22,14 @@ export interface IUser {
 export interface INewUser {
   name: string;
   job: string;
-  id?: string;
+  id?: number;
   createdAt?: string;
 }
 
 export interface IEditedUser {
   name: string;
   job: string;
-  id?: string;
+  id?: number;
   updatedAt?: string;
 }
 
@@ -39,5 +39,5 @@ export interface IUsersAction {
 }
 
 export interface IUserCardProps {
-  user: IUser;
+  user: any;
 }

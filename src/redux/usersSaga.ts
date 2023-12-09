@@ -11,6 +11,7 @@ import {
   SET_EDIT_USER,
 } from "./constants";
 import { INewUser, IUser, IEditedUser } from "../utils/interfaces";
+import { Action } from "redux";
 
 function* getListUsers() {
   try {
@@ -25,24 +26,26 @@ function* getListUsers() {
   }
 }
 
-function* getUser() {
+function* getUser(action: Action) {
+  console.log("action in getUser:", action);
   try {
+    const userId = (action as any).data;
     const response: AxiosResponse = yield axios.get(
-      "https://reqres.in/api/users/2"
+      `https://reqres.in/api/users/${userId}`
     );
-    const user: IUser = response.data;
-    console.log("get user called", user);
+    const user: IUser = response.data.data;
+    console.log("get user called in saga", user);
     yield put({ type: SET_USER, data: user });
   } catch (error) {
     console.error("Error fetching user", error);
   }
 }
 
-function* createUser(action: { type: typeof CREATE_USER; data: INewUser }) {
+function* createUser(action: Action) {
   try {
     const response: AxiosResponse = yield axios.post(
       "https://reqres.in/api/users",
-      action.data
+      (action as any).data
     );
     const createdUser: INewUser = response.data;
     console.log("create user called", createdUser);
@@ -52,11 +55,11 @@ function* createUser(action: { type: typeof CREATE_USER; data: INewUser }) {
   }
 }
 
-function* editUser(action: { type: typeof EDIT_USER; data: IEditedUser }) {
+function* editUser(action: Action) {
   try {
     const response: AxiosResponse = yield axios.patch(
       "https://reqres.in/api/users/3",
-      action.data
+      (action as any).data
     );
     const editedUser: IEditedUser = response.data;
     console.log("edited user called", editedUser);

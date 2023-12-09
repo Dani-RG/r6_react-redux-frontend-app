@@ -5,14 +5,15 @@ import { IListUsers } from "../utils/interfaces";
 import CreateUser from "./CreateUser";
 import EditUser from "./EditUser";
 import UserCard from "./UserCard";
+import UserDetailModal from "./UserDetailModal";
 
 const Main: React.FunctionComponent = () => {
   const dispatch = useDispatch();
 
-  const listUsers: IListUsers | undefined = useSelector(
+  const listUsersArray: IListUsers | undefined = useSelector(
     (state) => (state as any)?.usersData.listUsers
   );
-  console.log("data in listUsers", listUsers);
+  console.log("data in state.userData.listUsers:", listUsersArray);
 
   useEffect(() => {
     dispatch(getListUsers());
@@ -21,15 +22,16 @@ const Main: React.FunctionComponent = () => {
 
   return (
     <div>
-      {listUsers ? (
+      {listUsersArray ? (
         <ul>
-          {listUsers.map((elem: any) => (
+          {listUsersArray.map((elem: any) => (
             <UserCard key={elem.id} user={elem} />
           ))}
         </ul>
       ) : (
         <p>No users available.</p>
       )}
+      <UserDetailModal />
       <CreateUser />
       <EditUser />
     </div>
