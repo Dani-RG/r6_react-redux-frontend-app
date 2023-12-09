@@ -12,7 +12,7 @@ const Main: React.FunctionComponent = (props) => {
 
   // LIST USERS
   const listUsers: IListUsers | undefined = useSelector(
-    (state) => (state as any)?.listUsers
+    (state) => (state as any)?.usersData.listUsers
   );
   console.log("data in listUsers", listUsers);
 
@@ -27,14 +27,15 @@ const Main: React.FunctionComponent = (props) => {
 
   useEffect(() => {
     console.log("use effect data in listUsers", listUsers);
+    // eslint-disable-next-line
   }, [listUsers]);
 
   return (
     <div>
       {listUsers ? (
         <ul>
-          {listUsers.map((user: any) => (
-            <li key={user.id}>{user.name}</li>
+          {listUsers.map((elem: IUser) => (
+            <li key={elem.id}>{elem.first_name}</li>
           ))}
         </ul>
       ) : (
