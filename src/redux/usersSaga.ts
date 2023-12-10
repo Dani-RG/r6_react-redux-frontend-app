@@ -53,8 +53,9 @@ function* createUser(action: Action) {
     );
     const createdUser: INewUser = response.data;
     yield put({ type: SET_CREATE_USER });
-    listUsers = [createdUser, ...listUsers];
+    listUsers = [...listUsers, createdUser];
     yield put({ type: SET_LIST_USERS, data: listUsers });
+    alert("User created, look for it on the last page");
   } catch (error) {
     console.error("Error creating user", error);
   }
@@ -76,6 +77,7 @@ function* editUser(action: any) {
       data: editedUser,
       userId,
     });
+    alert("User edited");
   } catch (error) {
     console.error("Error editing user", error);
   }
