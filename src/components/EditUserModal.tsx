@@ -10,7 +10,6 @@ const EditUserModal: React.FC<IModalProps> = ({ open, onClose }) => {
     (state) => (state as any).usersData.user
   );
   const userId: number = Number(selectedUser?.id);
-  console.log("selectedUser", selectedUser);
 
   const initialState: IEditedUser = {
     name: "",

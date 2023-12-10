@@ -17,10 +17,15 @@ let listUsers: any;
 
 function* getListUsers() {
   try {
-    const response: AxiosResponse = yield axios.get(
+    const firstResponse: AxiosResponse = yield axios.get(
       "https://reqres.in/api/users?page=1"
     );
-    listUsers = response.data.data;
+    const secondResponse: AxiosResponse = yield axios.get(
+      "https://reqres.in/api/users?page=2"
+    );
+    const firstList = firstResponse.data.data;
+    const secondList = secondResponse.data.data;
+    listUsers = [...firstList, ...secondList];
     yield put({ type: SET_LIST_USERS, data: listUsers });
   } catch (error) {
     console.error("Error fetching list of users", error);

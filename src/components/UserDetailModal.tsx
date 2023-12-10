@@ -10,10 +10,6 @@ const UserDetailModal: React.FC<IModalProps> = ({ open, onClose }) => {
   const selectedUser: IUser | undefined = useSelector(
     (state) => (state as any).usersData.user
   );
-  console.log("data in state.userData.user:", selectedUser);
-
-  const storedState: any = useSelector((state) => (state as any).usersData);
-  console.log("state.usersData:", storedState);
 
   const portalContainer = document.getElementById("portal");
 
