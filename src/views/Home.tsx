@@ -1,14 +1,12 @@
 import React from "react";
-import { getAuth, signOut } from "firebase/auth";
 import Main from "../components/Main";
+import Sidebar from "../components/Sidebar";
 
-const Home: React.FunctionComponent = (props) => {
-  const auth = getAuth();
-
+const Home: React.FC = () => {
   return (
     <div>
+      <Sidebar />
       <Main />
-      <button onClick={() => signOut(auth)}>Sign out</button>
     </div>
   );
 };

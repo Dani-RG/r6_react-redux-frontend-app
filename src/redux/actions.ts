@@ -22,7 +22,6 @@ export const createUser = (data: INewUser) => {
 };
 
 export const editUser = (userId: number, userData: IEditedUser) => {
-  console.log("edit user called-> userId, userData", userId, userData);
   return {
     type: EDIT_USER,
     userId: userId,

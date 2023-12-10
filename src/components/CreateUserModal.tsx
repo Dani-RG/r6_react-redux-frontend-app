@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createUser } from "../redux/actions";
-import { INewUser } from "../utils/interfaces";
+import { INewUser, IModalProps } from "../utils/interfaces";
+import ReactDOM from "react-dom";
 
-const CreateUserModal: React.FC = () => {
+const CreateUserModal: React.FC<IModalProps> = ({ open, onClose }) => {
   const dispatch = useDispatch();
 
   const initialState: INewUser = {
@@ -27,28 +28,36 @@ const CreateUserModal: React.FC = () => {
     setUserDefinition(initialState);
   };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Name:
-        <input
-          type="text"
-          name="name"
-          value={userDefinition.name}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        Job:
-        <input
-          type="text"
-          name="job"
-          value={userDefinition.job}
-          onChange={handleInputChange}
-        />
-      </label>
-      <button type="submit">Create User</button>
-    </form>
+  const portalContainer = document.getElementById("portal");
+
+  if (!open || !portalContainer) return null;
+
+  return ReactDOM.createPortal(
+    <>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Name:
+          <input
+            type="text"
+            name="name"
+            value={userDefinition.name}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Job:
+          <input
+            type="text"
+            name="job"
+            value={userDefinition.job}
+            onChange={handleInputChange}
+          />
+        </label>
+        <button type="submit">Create User</button>
+      </form>
+      <button onClick={onClose}>close</button>
+    </>,
+    portalContainer
   );
 };
 

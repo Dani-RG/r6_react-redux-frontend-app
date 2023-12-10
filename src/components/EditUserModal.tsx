@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editUser } from "../redux/actions";
-import { IEditedUser, IUser, INewUser } from "../utils/interfaces";
+import { IEditedUser, IUser, INewUser, IModalProps } from "../utils/interfaces";
+import ReactDOM from "react-dom";
 
-const EditUserModal: React.FC = () => {
+const EditUserModal: React.FC<IModalProps> = ({ open, onClose }) => {
   const dispatch = useDispatch();
   const selectedUser: IUser | INewUser | undefined = useSelector(
     (state) => (state as any).usersData.user
   );
   const userId: number = Number(selectedUser?.id);
   console.log("selectedUser", selectedUser);
-  console.log("userId", userId);
 
   const initialState: IEditedUser = {
     name: "",
@@ -32,7 +32,6 @@ const EditUserModal: React.FC = () => {
     if (userId) {
       dispatch(editUser(userId, userUpdated));
       setUserUpdated(initialState);
-      console.log("userId", userId);
     } else {
       console.error("userId is undefined");
     }
@@ -41,8 +40,12 @@ const EditUserModal: React.FC = () => {
   const storedState: any = useSelector((state) => (state as any).usersData);
   console.log("state.usersData:", storedState);
 
-  return (
-    <div>
+  const portalContainer = document.getElementById("portal");
+
+  if (!open || !portalContainer) return null;
+
+  return ReactDOM.createPortal(
+    <>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -64,14 +67,9 @@ const EditUserModal: React.FC = () => {
         </label>
         <button type="submit">Save</button>
       </form>
-      <button
-        onClick={() => {
-          dispatch(editUser(userId, userUpdated));
-        }}
-      >
-        Edit user
-      </button>
-    </div>
+      <button onClick={onClose}>close</button>
+    </>,
+    portalContainer
   );
 };
 

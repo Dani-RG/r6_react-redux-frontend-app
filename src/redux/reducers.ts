@@ -21,17 +21,13 @@ export const usersData = (state = initialState, action: any) => {
       return { userDefinition: action.data, ...state };
     case SET_EDIT_USER:
       if (!action.userId) {
-        console.log("no id, action", action);
         return state;
       } else {
-        console.log("with id, action", action);
         const updatedListUsers: any = state.listUsers.map(
           (user: IUser | INewUser | IEditedUser) => {
             if (user.id === action.userId) {
-              console.log("action.data", action.data);
               return action.data;
             }
-            console.log("user", user);
             return user;
           }
         );

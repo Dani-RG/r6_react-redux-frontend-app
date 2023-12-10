@@ -57,9 +57,7 @@ function* createUser(action: Action) {
 
 function* editUser(action: any) {
   try {
-    console.log("action", action);
     const userId = (action as any).userId;
-    console.log("action.userId", (action as any).userId);
     const response: AxiosResponse = yield axios.patch(
       `https://reqres.in/api/users/${userId}`,
       {
@@ -67,9 +65,7 @@ function* editUser(action: any) {
         job: action.userData.job,
       }
     );
-    console.log("response.data", response.data);
     const editedUser: IEditedUser = response.data;
-    console.log("edited user called", editedUser);
     yield put({
       type: SET_EDIT_USER,
       data: editedUser,

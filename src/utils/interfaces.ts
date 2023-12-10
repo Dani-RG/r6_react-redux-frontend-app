@@ -36,3 +36,8 @@ export interface IEditedUser {
 export interface IUserCardProps {
   user: any;
 }
+
+export interface IModalProps {
+  open: boolean;
+  onClose: () => void;
+}

@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { IUserCardProps } from "../utils/interfaces";
 import { useDispatch } from "react-redux";
 import { getUser } from "../redux/actions";
+import UserDetailModal from "./UserDetailModal";
 
 const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
   const dispatch = useDispatch();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOnClick = () => {
+    dispatch(getUser(user.id));
+    setIsOpen(true);
+  };
 
   return (
     <div>
@@ -13,20 +20,8 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
         <h2>{`${user.first_name} ${user.last_name}`}</h2>
         <p>Email: {user.email}</p>
       </div>
-      <button
-        onClick={() => {
-          dispatch(getUser(user.id));
-        }}
-      >
-        Get user details
-      </button>
-      <button
-        onClick={() => {
-          alert("open edit user window");
-        }}
-      >
-        Edit user
-      </button>
+      <button onClick={() => handleOnClick()}>Get details</button>
+      <UserDetailModal open={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   );
 };
