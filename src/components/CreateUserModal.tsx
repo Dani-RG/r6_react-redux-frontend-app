@@ -1,23 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { editUser } from "../redux/actions";
-import { IEditedUser } from "../utils/interfaces";
-import { useParams } from "react-router-dom";
+import { createUser } from "../redux/actions";
+import { INewUser } from "../utils/interfaces";
 
-const EditUser: React.FC = () => {
+const CreateUserModal: React.FC = () => {
   const dispatch = useDispatch();
-  const { userId } = useParams();
 
-  const initialState: IEditedUser = {
+  const initialState: INewUser = {
     name: "",
     job: "",
   };
 
-  const [userData, setUserData] = useState(initialState);
+  const [userDefinition, setUserDefinition] = useState(initialState);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUserData((prevData) => ({
+    setUserDefinition((prevData) => ({
       ...prevData,
       [name]: value,
     }));
@@ -25,13 +23,8 @@ const EditUser: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (userId) {
-      dispatch(editUser(userId, userData));
-      setUserData(initialState);
-      console.log("user Data", userData);
-    } else {
-      console.error("userId is undefined");
-    }
+    dispatch(createUser(userDefinition));
+    setUserDefinition(initialState);
   };
 
   return (
@@ -41,7 +34,7 @@ const EditUser: React.FC = () => {
         <input
           type="text"
           name="name"
-          value={userData.name}
+          value={userDefinition.name}
           onChange={handleInputChange}
         />
       </label>
@@ -50,13 +43,13 @@ const EditUser: React.FC = () => {
         <input
           type="text"
           name="job"
-          value={userData.job}
+          value={userDefinition.job}
           onChange={handleInputChange}
         />
       </label>
-      <button type="submit">Save</button>
+      <button type="submit">Create User</button>
     </form>
   );
 };
 
-export default EditUser;
+export default CreateUserModal;

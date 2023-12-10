@@ -8,6 +8,9 @@ const UserDetailModal: React.FunctionComponent = () => {
   );
   console.log("data in state.userData.user:", selectedUser);
 
+  const storedState: any = useSelector((state) => (state as any).usersData);
+  console.log("state.usersData:", storedState);
+
   return (
     <div>
       <h1>-----</h1>

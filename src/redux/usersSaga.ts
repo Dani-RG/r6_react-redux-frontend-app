@@ -42,32 +42,39 @@ function* getUser(action: Action) {
 
 function* createUser(action: Action) {
   try {
-    console.log("ACTION", action);
-    console.log("ACTION.DATA", (action as any).data);
     const response: AxiosResponse = yield axios.post(
       "https://reqres.in/api/users",
       (action as any).data
     );
     const createdUser: INewUser = response.data;
-    console.log("CREATED USER", createdUser);
     yield put({ type: SET_CREATE_USER });
     listUsers = [createdUser, ...listUsers];
     yield put({ type: SET_LIST_USERS, data: listUsers });
-    console.log("LIST WITH NEW", listUsers);
   } catch (error) {
     console.error("Error creating user", error);
   }
 }
 
-function* editUser(action: Action) {
+function* editUser(action: any) {
   try {
+    console.log("action", action);
+    const userId = (action as any).userId;
+    console.log("action.userId", (action as any).userId);
     const response: AxiosResponse = yield axios.patch(
-      "https://reqres.in/api/users/3",
-      (action as any).data
+      `https://reqres.in/api/users/${userId}`,
+      {
+        name: action.userData.name,
+        job: action.userData.job,
+      }
     );
+    console.log("response.data", response.data);
     const editedUser: IEditedUser = response.data;
     console.log("edited user called", editedUser);
-    yield put({ type: SET_EDIT_USER });
+    yield put({
+      type: SET_EDIT_USER,
+      data: editedUser,
+      userId,
+    });
   } catch (error) {
     console.error("Error editing user", error);
   }

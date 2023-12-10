@@ -21,10 +21,11 @@ export const createUser = (data: INewUser) => {
   };
 };
 
-export const editUser = (userId: string, data: IEditedUser) => {
-  console.log("edit user called", data);
+export const editUser = (userId: number, userData: IEditedUser) => {
+  console.log("edit user called-> userId, userData", userId, userData);
   return {
     type: EDIT_USER,
-    data,
+    userId: userId,
+    userData: userData,
   };
 };

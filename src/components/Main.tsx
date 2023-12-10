@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { getListUsers } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { IListUsers } from "../utils/interfaces";
-import CreateUser from "./CreateUser";
-import EditUser from "./EditUser";
+import CreateUser from "./CreateUserModal";
+import EditUser from "./EditUserModal";
 import UserCard from "./UserCard";
 import UserDetailModal from "./UserDetailModal";
 
@@ -13,18 +13,14 @@ const Main: React.FunctionComponent = () => {
   const listUsersArray: IListUsers | undefined = useSelector(
     (state) => (state as any).usersData.listUsers
   );
-  console.log("listUsersArray", listUsersArray);
 
   useEffect(() => {
     dispatch(getListUsers());
     // eslint-disable-next-line
   }, []);
 
-  // useEffect(() => {
-  //   console.log("lengthOflistUsersArray", listUsersArray?.length);
-  //   // eslint-disable-next-line
-  // }, [listUsersArray?.length]);
-  console.log("lengthOflistUsersArray", listUsersArray?.length);
+  const storedState: any = useSelector((state) => (state as any).usersData);
+  console.log("state.usersData:", storedState);
 
   return (
     <div>

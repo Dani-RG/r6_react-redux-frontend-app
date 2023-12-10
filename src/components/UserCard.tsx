@@ -20,6 +20,13 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
       >
         Get user details
       </button>
+      <button
+        onClick={() => {
+          alert("open edit user window");
+        }}
+      >
+        Edit user
+      </button>
     </div>
   );
 };
