@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import CreateUserModal from "./CreateUserModal";
+import { StyledNavbar } from "./styles/Navbar.styled";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const Navbar: React.FC = () => {
   const { photoURL } = user;
 
   return (
-    <div>
+    <StyledNavbar>
       {location.pathname !== "/login" && (
         <div>
           <img src={photoURL} alt="logged user pic" />
@@ -32,7 +33,7 @@ const Navbar: React.FC = () => {
           <CreateUserModal open={isOpen} onClose={() => setIsOpen(false)} />
         </div>
       )}
-    </div>
+    </StyledNavbar>
   );
 };
 

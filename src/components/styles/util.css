@@ -1,0 +1,19 @@
+.lightColor {
+  color: #ffffff;
+}
+
+.midColor {
+  color: #f5f5f5;
+}
+
+.darkColor {
+  color: #14072b;
+}
+
+.highColor {
+  color: #affc41;
+}
+
+.softShadow {
+  box-shadow: 0 4px 8px #0000001a;
+}

@@ -6,25 +6,34 @@ import { initializeApp } from "firebase/app";
 import { config } from "./config/firebaseConfig";
 import AuthRoute from "./components/AuthRoute";
 import Navbar from "./components/Navbar";
+import { Container } from "./components/styles/Container.styled";
+import { ThemeProvider } from "styled-components";
+import { lightTheme } from "./components/styles/Theme";
+import GlobalStyles from "./components/styles/Global";
 
 initializeApp(config.firebaseConfig);
 
 const App: React.FunctionComponent = (props) => {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <AuthRoute>
-              <Home />
-            </AuthRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={lightTheme}>
+      <GlobalStyles />
+      <Container>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <AuthRoute>
+                  <Home />
+                </AuthRoute>
+              }
+            />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      </Container>
+    </ThemeProvider>
   );
 };
 

@@ -16,9 +16,6 @@ const Main: React.FC = () => {
     // eslint-disable-next-line
   }, []);
 
-  const storedState: any = useSelector((state) => (state as any).usersData);
-  console.log("state.usersData:", storedState);
-
   const separateIntoArraysOfFive = (array: IListUsers | undefined) => {
     const result = [];
     for (let i = 0; i < array?.length; i += 5) {

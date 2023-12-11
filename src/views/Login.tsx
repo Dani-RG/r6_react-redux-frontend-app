@@ -7,6 +7,11 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import logoGoogle from "../images/logo_Google.png";
+import logoTwitter from "../images/logo_Twitter.png";
+import logoFacebook from "../images/logo_Facebook.png";
+import { StyledLoginView } from "../components/styles/LoginView.styled";
+import { StyledLoginCard } from "../components/styles/LoginCard.styled";
 
 const Login: React.FunctionComponent = (props) => {
   const auth = getAuth();
@@ -48,8 +53,6 @@ const Login: React.FunctionComponent = (props) => {
 
     signInWithPopup(auth, new FacebookAuthProvider())
       .then((response) => {
-        console.log(response.user.uid);
-        console.log(response);
         navigate("/");
       })
       .catch((error) => {
@@ -59,18 +62,36 @@ const Login: React.FunctionComponent = (props) => {
   };
 
   return (
-    <div>
-      <p>Login Page</p>
-      <button onClick={() => signInWithGoogle()} disabled={authing}>
-        Sign in with Google
-      </button>
-      <button onClick={() => signInWithTwitter()} disabled={authing}>
-        Sign in with Twitter
-      </button>
-      <button onClick={() => signInWithFacebook()} disabled={authing}>
-        Sign in with Facebook
-      </button>
-    </div>
+    <StyledLoginView>
+      <a
+        href={"https://clouddistrict.com/"}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://clouddistrict.com/hubfs/raw_assets/public/themes/kumo-ku/assets/images/icons/logocdwh.svg"
+          alt="cloudDistrictLogo"
+        />
+      </a>
+      <h3>Tech Test:</h3>
+      <StyledLoginCard>
+        <h2>Sign in</h2>
+        <div>
+          <button onClick={() => signInWithGoogle()} disabled={authing}>
+            <img src={logoGoogle} alt="logoGoogle" />
+            Continue with Google
+          </button>
+          <button onClick={() => signInWithTwitter()} disabled={authing}>
+            <img src={logoTwitter} alt="logoTwitter" />
+            Continue with Twitter
+          </button>
+          <button onClick={() => signInWithFacebook()} disabled={authing}>
+            <img src={logoFacebook} alt="logoFacebook" />
+            Continue with Facebook
+          </button>
+        </div>
+      </StyledLoginCard>
+    </StyledLoginView>
   );
 };
 

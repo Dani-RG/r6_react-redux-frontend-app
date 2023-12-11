@@ -31,7 +31,7 @@ const Sidebar: React.FC = () => {
             <h2>{displayName}</h2>
             <h3>{email}</h3>
           </div>
-          <button onClick={() => signOut(auth)}>Sign out</button>
+          <button onClick={() => signOut(auth)}>Log out</button>
         </div>
       )}
     </div>
