@@ -6,7 +6,7 @@ const GlobalStyles = createGlobalStyle`
   };
 
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: ${({ theme }) => theme.colors.midColor}
   }
 

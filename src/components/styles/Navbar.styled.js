@@ -20,9 +20,15 @@ export const StyledNavbar = styled.nav`
     align-items: center;
     width: 90%;
 
-    img {
-      width: 45px;
-      border-radius: 50%;
+    button {
+      display: flex;
+      align-items: center;
+
+      img {
+        width: 45px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
     }
   }
 
