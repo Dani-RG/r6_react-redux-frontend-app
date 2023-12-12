@@ -47,3 +47,8 @@ export interface ISidebarContextProps {
   openSidebar: () => void;
   closeSidebar: () => void;
 }
+
+export interface SidebarContextProps {
+  isOpen: boolean;
+  toggleSidebar: () => void;
+}

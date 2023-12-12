@@ -3,6 +3,7 @@ import { IUserCardProps } from "../utils/interfaces";
 import { useDispatch } from "react-redux";
 import { getUser } from "../redux/actions";
 import UserDetailModal from "./UserDetailModal";
+import defaultUser from "../images/default_user.jpeg";
 
 const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
   const dispatch = useDispatch();
@@ -18,14 +19,7 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
       {user.avatar ? (
         <img src={user.avatar} alt={`${user.first_name} ${user.last_name}`} />
       ) : (
-        <img
-          src={
-            "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSjVU5V_Q7knbXvyWUUYAmFNOM219sLJGmh2Uf8aEd2RCw6-5Vg"
-          }
-          alt="default pic"
-          width="128"
-          height="128"
-        />
+        <img src={defaultUser} alt="default pic" width="128" height="128" />
       )}
       <div>
         <h2>

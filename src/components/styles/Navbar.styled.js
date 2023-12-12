@@ -26,7 +26,7 @@ export const StyledNavbar = styled.nav`
     }
   }
 
-  button {
+  .addUserBtn {
     height: 2rem;
     width: 2rem;
     svg {

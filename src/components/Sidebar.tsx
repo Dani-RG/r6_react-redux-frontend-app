@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { StyledSidebar } from "../components/styles/Sidebar.styled";
+import { useSidebar } from "../context/SidebarContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Sidebar: React.FC = () => {
   const auth = getAuth();
   const [user, setUser] = useState<any | null>(null);
+  const { isOpen } = useSidebar();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -25,17 +28,28 @@ const Sidebar: React.FC = () => {
   const { displayName, email } = user;
 
   return (
-    <StyledSidebar>
-      {location.pathname !== "/login" && (
-        <div>
-          <div>
-            <h2>{displayName}</h2>
-            <h3>{email}</h3>
-          </div>
-          <button onClick={() => signOut(auth)}>Log out</button>
-        </div>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ x: "-100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-100%" }}
+          transition={{ duration: 0.3 }}
+        >
+          <StyledSidebar>
+            {location.pathname !== "/login" && (
+              <div>
+                <div>
+                  <h2>{displayName}</h2>
+                  <h3>{email}</h3>
+                </div>
+                <button onClick={() => signOut(auth)}>Log out</button>
+              </div>
+            )}
+          </StyledSidebar>
+        </motion.div>
       )}
-    </StyledSidebar>
+    </AnimatePresence>
   );
 };
 
