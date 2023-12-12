@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { StyledSidebar } from "../components/styles/Sidebar.styled";
 
 const Sidebar: React.FC = () => {
   const auth = getAuth();
@@ -24,7 +25,7 @@ const Sidebar: React.FC = () => {
   const { displayName, email } = user;
 
   return (
-    <div>
+    <StyledSidebar>
       {location.pathname !== "/login" && (
         <div>
           <div>
@@ -34,7 +35,7 @@ const Sidebar: React.FC = () => {
           <button onClick={() => signOut(auth)}>Log out</button>
         </div>
       )}
-    </div>
+    </StyledSidebar>
   );
 };
 

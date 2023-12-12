@@ -36,9 +36,6 @@ const EditUserModal: React.FC<IModalProps> = ({ open, onClose }) => {
     }
   };
 
-  const storedState: any = useSelector((state) => (state as any).usersData);
-  console.log("state.usersData:", storedState);
-
   const portalContainer = document.getElementById("portal");
 
   if (!open || !portalContainer) return null;

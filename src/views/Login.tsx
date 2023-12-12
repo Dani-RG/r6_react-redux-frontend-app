@@ -23,8 +23,6 @@ const Login: React.FunctionComponent = (props) => {
 
     signInWithPopup(auth, new GoogleAuthProvider())
       .then((response) => {
-        console.log(response.user.uid);
-        console.log(response);
         navigate("/");
       })
       .catch((error) => {
@@ -38,8 +36,6 @@ const Login: React.FunctionComponent = (props) => {
 
     signInWithPopup(auth, new TwitterAuthProvider())
       .then((response) => {
-        console.log(response.user.uid);
-        console.log(response);
         navigate("/");
       })
       .catch((error) => {
@@ -69,7 +65,7 @@ const Login: React.FunctionComponent = (props) => {
         rel="noopener noreferrer"
       >
         <img
-          src="https://clouddistrict.com/hubfs/raw_assets/public/themes/kumo-ku/assets/images/icons/logocdwh.svg"
+          src="https://clouddistrict.com/hubfs/raw_assets/public/themes/kumo-ku/assets/images/icons/logocd.svg"
           alt="cloudDistrictLogo"
         />
       </a>

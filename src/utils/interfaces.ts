@@ -41,3 +41,9 @@ export interface IModalProps {
   open: boolean;
   onClose: () => void;
 }
+
+export interface ISidebarContextProps {
+  isOpen: boolean;
+  openSidebar: () => void;
+  closeSidebar: () => void;
+}

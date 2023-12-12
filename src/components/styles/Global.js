@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Montserrat', sans-serif;
-    background-color: ${({ theme }) => theme.colors.darkColor}
+    background-color: ${({ theme }) => theme.colors.midColor}
   }
 
   ul, ol {

@@ -10,6 +10,7 @@ import { Container } from "./components/styles/Container.styled";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./components/styles/Theme";
 import GlobalStyles from "./components/styles/Global";
+import Sidebar from "./components/Sidebar";
 
 initializeApp(config.firebaseConfig);
 
@@ -17,9 +18,10 @@ const App: React.FunctionComponent = (props) => {
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
-      <Container>
-        <BrowserRouter>
-          <Navbar />
+      <BrowserRouter>
+        <Navbar />
+        <Sidebar />
+        <Container>
           <Routes>
             <Route
               path="/"
@@ -31,8 +33,8 @@ const App: React.FunctionComponent = (props) => {
             />
             <Route path="/login" element={<Login />} />
           </Routes>
-        </BrowserRouter>
-      </Container>
+        </Container>
+      </BrowserRouter>
     </ThemeProvider>
   );
 };

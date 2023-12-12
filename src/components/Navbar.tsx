@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import CreateUserModal from "./CreateUserModal";
 import { StyledNavbar } from "./styles/Navbar.styled";
+import { MdOutlineAddCircle } from "react-icons/md";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -29,7 +30,9 @@ const Navbar: React.FC = () => {
       {location.pathname !== "/login" && (
         <div>
           <img src={photoURL} alt="logged user pic" />
-          <button onClick={() => setIsOpen(true)}>Create user</button>
+          <button onClick={() => setIsOpen(true)}>
+            <MdOutlineAddCircle />
+          </button>
           <CreateUserModal open={isOpen} onClose={() => setIsOpen(false)} />
         </div>
       )}

@@ -3,6 +3,7 @@ import { getListUsers } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { IListUsers } from "../utils/interfaces";
 import UserCard from "./UserCard";
+import { StyledMain } from "../components/styles/Main.styled";
 
 const Main: React.FC = () => {
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ const Main: React.FC = () => {
   const endIndex = pageNumber * usersPerPage;
 
   return (
-    <div>
+    <StyledMain>
       <div>
         <button onClick={handleDecrement}>Decrement</button>
         <span>{pageNumber}</span>
@@ -63,7 +64,7 @@ const Main: React.FC = () => {
       ) : (
         <p>No users available.</p>
       )}
-    </div>
+    </StyledMain>
   );
 };
 
