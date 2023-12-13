@@ -41,3 +41,6 @@ Se valora positivamente el uso adicional de Redux Sagas, React Context, y la imp
 ## Metodologías de Trabajo y Requisitos Técnicos
 
 El desarrollo debe realizarse en React orientado a funciones y hooks. La aplicación final debe ser responsive y adaptativa, garantizando una experiencia de usuario coherente desde escritorio hasta dispositivos móviles.
+![Screenshot00](CD_FTT_00.png)
+![Screenshot00](CD_FTT_01.png)
+![Screenshot00](CD_FTT_02.png)
