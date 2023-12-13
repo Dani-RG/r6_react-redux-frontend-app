@@ -19,6 +19,15 @@ const GlobalStyles = createGlobalStyle`
   button {
     all: unset
   }
+
+  a {
+    all: unset;
+  }
+
+  html {
+    height: 100vh;
+    width: 100vw;
+  }
 `;
 
 export default GlobalStyles;

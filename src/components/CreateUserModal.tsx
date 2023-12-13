@@ -45,7 +45,6 @@ const CreateUserModal: React.FC<IModalProps> = ({ open, onClose }) => {
               value={userDefinition.name}
               onChange={handleInputChange}
             />
-
             <label>Job:</label>
             <input
               type="text"

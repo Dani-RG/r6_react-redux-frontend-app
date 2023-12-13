@@ -48,15 +48,13 @@ export const StyledModal = styled.div`
     .form {
       display: flex;
       flex-direction: column;
+      width: 95%;
+      align-self: center;
     }
 
     input {
       line-height: 1.5rem;
       margin: 1rem;
-    }
-
-    .defaull-user-img {
-      align-self: center;
     }
 
     button {

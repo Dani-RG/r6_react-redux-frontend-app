@@ -31,7 +31,6 @@ export const usersData = (state = initialState, action: any) => {
             return user;
           }
         );
-        console.log("updatedListUsers", updatedListUsers);
 
         return {
           ...state,
