@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const StyledSidebar = styled.div`
+  background-color: ${({ theme }) => theme.colors.lightColor};
+  box-shadow: ${({ theme }) => theme.shadows.boxShadow};
   height: 100vh;
   text-align: center;
-  background-color: ${({ theme }) => theme.colors.lightColor};
   position: fixed;
   width: max-content;
   line-height: 2rem;
   padding: 2.5rem;
-  z-index: 90;
+  z-index: 100;
 
   div {
     margin-top: 30vh;

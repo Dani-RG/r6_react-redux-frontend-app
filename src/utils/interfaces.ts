@@ -49,6 +49,6 @@ export interface ISidebarContextProps {
 }
 
 export interface SidebarContextProps {
-  isOpen: boolean;
+  isSidebarOpen: boolean;
   toggleSidebar: () => void;
 }

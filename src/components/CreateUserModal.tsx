@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { createUser } from "../redux/actions";
 import { INewUser, IModalProps } from "../utils/interfaces";
 import ReactDOM from "react-dom";
+import { StyledModal } from "./styles/UserModal.styled";
 
 const CreateUserModal: React.FC<IModalProps> = ({ open, onClose }) => {
   const dispatch = useDispatch();
@@ -33,30 +34,31 @@ const CreateUserModal: React.FC<IModalProps> = ({ open, onClose }) => {
   if (!open || !portalContainer) return null;
 
   return ReactDOM.createPortal(
-    <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={userDefinition.name}
-            onChange={handleInputChange}
-          />
-        </label>
-        <label>
-          Job:
-          <input
-            type="text"
-            name="job"
-            value={userDefinition.job}
-            onChange={handleInputChange}
-          />
-        </label>
-        <button type="submit">Create User</button>
-      </form>
-      <button onClick={onClose}>close</button>
-    </>,
+    <StyledModal>
+      <div className="overlay">
+        <div className="modal-content">
+          <form className="form" onSubmit={handleSubmit}>
+            <label>Name:</label>
+            <input
+              type="text"
+              name="name"
+              value={userDefinition.name}
+              onChange={handleInputChange}
+            />
+
+            <label>Job:</label>
+            <input
+              type="text"
+              name="job"
+              value={userDefinition.job}
+              onChange={handleInputChange}
+            />
+            <button type="submit">Create User</button>
+          </form>
+          <button onClick={onClose}>close</button>
+        </div>
+      </div>
+    </StyledModal>,
     portalContainer
   );
 };

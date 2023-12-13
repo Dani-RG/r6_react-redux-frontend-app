@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const Sidebar: React.FC = () => {
   const auth = getAuth();
   const [user, setUser] = useState<any | null>(null);
-  const { isOpen } = useSidebar();
+  const { isSidebarOpen } = useSidebar();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -29,7 +29,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <AnimatePresence>
-      {isOpen && (
+      {isSidebarOpen && (
         <motion.div
           initial={{ x: "-100%" }}
           animate={{ x: 0 }}

@@ -60,14 +60,14 @@ const Main: React.FC = () => {
       ) : (
         <p>No users available.</p>
       )}
-      <div className="pagesNav">
-        <button className="pageArrow" onClick={handleDecrement}>
+      <div className="pages-nav">
+        <button className="page-arrow" onClick={handleDecrement}>
           <IoIosArrowDropleftCircle />
         </button>
         <span>
           {pageNumber} / {maxPages}
         </span>
-        <button className="pageArrow" onClick={handleIncrement}>
+        <button className="page-arrow" onClick={handleIncrement}>
           <IoIosArrowDroprightCircle />
         </button>
       </div>

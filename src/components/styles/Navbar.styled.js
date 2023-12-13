@@ -10,7 +10,7 @@ export const StyledNavbar = styled.nav`
   height: 3rem;
   display: flex;
   padding: 28px 1rem;
-  z-index: 100;
+  z-index: 150;
   box-shadow: ${({ theme }) => theme.shadows.boxShadow};
   justify-content: center;
 
@@ -32,7 +32,7 @@ export const StyledNavbar = styled.nav`
     }
   }
 
-  .addUserBtn {
+  .add-user-btn {
     height: 2rem;
     width: 2rem;
     svg {

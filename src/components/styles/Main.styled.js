@@ -8,7 +8,13 @@ export const StyledMain = styled.div`
     text-align: center;
   }
 
-  .pageArrow {
+  .pages-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-arrow {
     width: 2rem;
     height: 2rem;
     margin: 2rem;
@@ -20,11 +26,5 @@ export const StyledMain = styled.div`
         fill: ${({ theme }) => theme.colors.highColor};
       }
     }
-  }
-
-  .pagesNav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 `;

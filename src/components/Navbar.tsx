@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
           <button onClick={toggleSidebar}>
             <img src={photoURL} alt={"userPic"} />
           </button>
-          <button className="addUserBtn" onClick={() => setIsOpen(true)}>
+          <button className="add-user-btn" onClick={() => setIsOpen(true)}>
             <MdOutlineAddCircle />
           </button>
           <CreateUserModal open={isOpen} onClose={() => setIsOpen(false)} />

@@ -28,7 +28,6 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
             ? `${user.first_name} ${user.last_name}`
             : user.name}
         </h2>
-        {user.email && <p>{user.email}</p>}
         {user.job && <p>Job: {user.job}</p>}
       </div>
       <button onClick={() => handleOnClick()}>Get details</button>
