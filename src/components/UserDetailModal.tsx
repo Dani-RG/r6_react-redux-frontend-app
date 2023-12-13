@@ -24,7 +24,7 @@ const UserDetailModal: React.FC<IModalProps> = ({ open, onClose }) => {
           <h1>
             {selectedUser?.first_name} {selectedUser?.last_name}
           </h1>
-          <h2>{selectedUser?.email}</h2>
+          <h3>{selectedUser?.email}</h3>
           <h4>Id: {selectedUser?.id}</h4>
           <div className="modal-btns">
             <button onClick={() => setIsOpen(true)}>Edit user</button>

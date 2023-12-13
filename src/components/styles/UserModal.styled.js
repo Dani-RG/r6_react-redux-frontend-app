@@ -55,6 +55,10 @@ export const StyledModal = styled.div`
       margin: 1rem;
     }
 
+    .defaull-user-img {
+      align-self: center;
+    }
+
     button {
       background-color: ${({ theme }) => theme.colors.darkColor};
       color: ${({ theme }) => theme.colors.lightColor};

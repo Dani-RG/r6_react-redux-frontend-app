@@ -30,7 +30,13 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
         </h2>
         {user.job && <p>Job: {user.job}</p>}
       </div>
-      <button onClick={() => handleOnClick()}>Get details</button>
+      <div>
+        {user.first_name ? (
+          <button onClick={() => handleOnClick()}>Get details</button>
+        ) : (
+          ""
+        )}
+      </div>
       <UserDetailModal open={isOpen} onClose={() => setIsOpen(false)} />
     </StyledUserCard>
   );
