@@ -6,6 +6,8 @@ export const StyledSidebar = styled.div`
   height: 100vh;
   text-align: center;
   position: fixed;
+  top: 0;
+  left: 0;
   width: max-content;
   line-height: 2rem;
   padding: 2.5rem;

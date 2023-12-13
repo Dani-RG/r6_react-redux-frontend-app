@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { StyledSidebar } from "../components/styles/Sidebar.styled";
 import { useSidebar } from "../context/SidebarContext";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Sidebar: React.FC = () => {
   const auth = getAuth();
@@ -28,26 +27,17 @@ const Sidebar: React.FC = () => {
   const { displayName, email } = user;
 
   return (
-    <AnimatePresence>
-      {isSidebarOpen && (
-        <motion.div
-          initial={{ x: "-100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
-          transition={{ duration: 0.3 }}
-        >
-          {location.pathname !== "/login" && (
-            <StyledSidebar>
-              <div>
-                <h2>{displayName}</h2>
-                <h3>{email}</h3>
-              </div>
-              <button onClick={() => signOut(auth)}>Log out</button>
-            </StyledSidebar>
-          )}
-        </motion.div>
+    <div>
+      {isSidebarOpen && location.pathname !== "/login" && (
+        <StyledSidebar>
+          <div>
+            <h2>{displayName}</h2>
+            <h3>{email}</h3>
+          </div>
+          <button onClick={() => signOut(auth)}>Log out</button>
+        </StyledSidebar>
       )}
-    </AnimatePresence>
+    </div>
   );
 };
 

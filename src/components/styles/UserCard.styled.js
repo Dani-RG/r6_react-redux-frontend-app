@@ -30,6 +30,6 @@ export const StyledUserCard = styled.div`
   }
 
   @media (min-width: 768px) {
-    width: calc(33.333% - 3rem);
+    width: calc(33.333% - 2rem);
   }
 `;
