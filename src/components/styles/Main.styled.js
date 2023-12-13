@@ -4,8 +4,17 @@ export const StyledMain = styled.div`
   margin-top: 5rem;
   margin-bottom: 1rem;
 
-  div {
-    text-align: center;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   .pages-nav {

@@ -5,9 +5,9 @@ export const StyledUserCard = styled.div`
   text-align: center;
   border-radius: 8px;
   padding: 2rem;
-  margin: 1rem;
   box-shadow: ${({ theme }) => theme.shadows.boxShadow};
   transition: box-shadow 0.3s ease;
+  width: 100%;
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -27,5 +27,9 @@ export const StyledUserCard = styled.div`
       background-color: ${({ theme }) => theme.colors.highColor};
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
+  }
+
+  @media (min-width: 768px) {
+    width: calc(33.333% - 3rem);
   }
 `;
