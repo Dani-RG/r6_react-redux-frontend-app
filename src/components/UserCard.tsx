@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getUser } from "../redux/actions";
 import UserDetailModal from "./UserDetailModal";
 import defaultUser from "../images/default_user.jpeg";
+import { StyledUserCard } from "./styles/UserCard.styled";
 
 const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
   };
 
   return (
-    <div>
+    <StyledUserCard>
       {user.avatar ? (
         <img src={user.avatar} alt={`${user.first_name} ${user.last_name}`} />
       ) : (
@@ -27,12 +28,12 @@ const UserCard: React.FunctionComponent<IUserCardProps> = ({ user }) => {
             ? `${user.first_name} ${user.last_name}`
             : user.name}
         </h2>
-        {user.email && <p>Email: {user.email}</p>}
+        {user.email && <p>{user.email}</p>}
         {user.job && <p>Job: {user.job}</p>}
       </div>
       <button onClick={() => handleOnClick()}>Get details</button>
       <UserDetailModal open={isOpen} onClose={() => setIsOpen(false)} />
-    </div>
+    </StyledUserCard>
   );
 };
 

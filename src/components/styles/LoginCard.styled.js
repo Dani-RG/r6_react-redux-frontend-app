@@ -5,7 +5,7 @@ export const StyledLoginCard = styled.div`
   color: ${({ theme }) => theme.colors.darkColor};
   text-align: center;
   border-radius: 10px;
-  box-shadow: 0 4px 8px #0000001a;
+  box-shadow: ${({ theme }) => theme.shadows.boxShadow};
 
   h2 {
     padding: 2rem;
@@ -25,11 +25,12 @@ export const StyledLoginCard = styled.div`
     line-height: 2rem;
     margin: 2rem 0;
     padding: 1rem;
-    box-shadow: 0 4px 8px #0000001a;
+    box-shadow: ${({ theme }) => theme.shadows.boxShadow};
     border-radius: 5px;
 
     &:hover {
       background-color: ${({ theme }) => theme.colors.highColor};
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     & > img {

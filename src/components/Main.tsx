@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { IListUsers } from "../utils/interfaces";
 import UserCard from "./UserCard";
 import { StyledMain } from "../components/styles/Main.styled";
+import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const Main: React.FC = () => {
   const dispatch = useDispatch();
@@ -49,12 +51,6 @@ const Main: React.FC = () => {
 
   return (
     <StyledMain>
-      <div>
-        <button onClick={handleDecrement}>Decrement</button>
-        <span>{pageNumber}</span>
-        <button onClick={handleIncrement}>Increment</button>
-      </div>
-
       {flattenedArray ? (
         <ul>
           {flattenedArray.slice(startIndex, endIndex).map((user: any) => (
@@ -64,6 +60,17 @@ const Main: React.FC = () => {
       ) : (
         <p>No users available.</p>
       )}
+      <div className="pagesNav">
+        <button className="pageArrow" onClick={handleDecrement}>
+          <IoIosArrowDropleftCircle />
+        </button>
+        <span>
+          {pageNumber} / {maxPages}
+        </span>
+        <button className="pageArrow" onClick={handleIncrement}>
+          <IoIosArrowDroprightCircle />
+        </button>
+      </div>
     </StyledMain>
   );
 };

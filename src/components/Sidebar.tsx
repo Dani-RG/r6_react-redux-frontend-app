@@ -36,17 +36,15 @@ const Sidebar: React.FC = () => {
           exit={{ x: "-100%" }}
           transition={{ duration: 0.3 }}
         >
-          <StyledSidebar>
-            {location.pathname !== "/login" && (
+          {location.pathname !== "/login" && (
+            <StyledSidebar>
               <div>
-                <div>
-                  <h2>{displayName}</h2>
-                  <h3>{email}</h3>
-                </div>
-                <button onClick={() => signOut(auth)}>Log out</button>
+                <h2>{displayName}</h2>
+                <h3>{email}</h3>
               </div>
-            )}
-          </StyledSidebar>
+              <button onClick={() => signOut(auth)}>Log out</button>
+            </StyledSidebar>
+          )}
         </motion.div>
       )}
     </AnimatePresence>

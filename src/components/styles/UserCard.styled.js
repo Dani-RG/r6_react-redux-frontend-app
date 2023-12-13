@@ -1,17 +1,16 @@
 import styled from "styled-components";
 
-export const StyledSidebar = styled.div`
-  height: 100vh;
-  text-align: center;
+export const StyledUserCard = styled.div`
   background-color: ${({ theme }) => theme.colors.lightColor};
-  position: fixed;
-  width: max-content;
-  line-height: 2rem;
-  padding: 2.5rem;
-  z-index: 90;
+  text-align: center;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: ${({ theme }) => theme.shadows.boxShadow};
+  transition: box-shadow 0.3s ease;
 
-  div {
-    margin-top: 30vh;
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
 
   button {
@@ -21,7 +20,7 @@ export const StyledSidebar = styled.div`
     font-weight: 600;
     border-radius: 50px;
 
-    margin: 2rem;
+    margin: 1rem;
     padding: 0.5rem 2rem;
 
     &:hover {

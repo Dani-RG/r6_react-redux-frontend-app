@@ -11,7 +11,7 @@ export const StyledNavbar = styled.nav`
   display: flex;
   padding: 28px 1rem;
   z-index: 100;
-  box-shadow: 0 4px 8px #0000001a;
+  box-shadow: ${({ theme }) => theme.shadows.boxShadow};
   justify-content: center;
 
   div {
