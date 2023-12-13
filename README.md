@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# PRUEBA TÉCNICA FRONTEND DEVELOPER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción del Proyecto
 
-## Available Scripts
+Este proyecto React tiene como objetivo evaluar tu desempeño en el consumo de diversas APIs y la implementación de programación funcional. La prueba técnica consta de dos pantallas:
 
-In the project directory, you can run:
+### `Pantalla 1: Login`
 
-### `npm start`
+1. Implementar un login social que permita al usuario autenticarse mediante Facebook, Twitter o Google.
+2. Asegurar el funcionamiento del login.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `Pantalla 2: Listado de Página`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. El acceso a esta pantalla está condicionado a que el usuario se haya autenticado en la Pantalla 1.
+2. Mostrar información obtenida de la API a través de la cual se ha autenticado el usuario (Nombre, email, foto, etc.).
+3. Desarrollar un listado paginado de 5 registros por página, consumiendo datos de la API proporcionada (https://reqres.in). Listado de usuarios: GET /api/users (utilizando query params "page" para la paginación).
 
-### `npm test`
+## Funcionalidades Adicionales
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Además de las funcionalidades básicas, la interfaz debe incluir:
 
-### `npm run build`
+1. Obtener datos de un usuario: GET /api/users/{id}
+2. Crear un usuario: POST /api/users (campos del body: name, job)
+3. Editar usuario: PATCH /api/users/{id}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Diseño y Distribución de la Interfaz
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Aunque no se busca un perfil de diseñador o UX, se espera una distribución clara y accesible para el usuario.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tecnologías Utilizadas
 
-### `npm run eject`
+Es imperativo utilizar las siguientes tecnologías durante el desarrollo:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. React
+2. Redux (hooks)
+3. Axios
+4. Styled Components
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Se valora positivamente el uso adicional de Redux Sagas, React Context, y la implementación de pruebas unitarias con Jest.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Metodologías de Trabajo y Requisitos Técnicos
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+El desarrollo debe realizarse en React orientado a funciones y hooks. La aplicación final debe ser responsive y adaptativa, garantizando una experiencia de usuario coherente desde escritorio hasta dispositivos móviles.

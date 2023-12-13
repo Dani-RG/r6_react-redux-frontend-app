@@ -18,7 +18,7 @@ export const StyledFooter = styled.div`
   }
 
   .footer-icons {
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-evenly;
   }

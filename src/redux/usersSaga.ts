@@ -55,7 +55,7 @@ function* createUser(action: Action) {
     yield put({ type: SET_CREATE_USER });
     listUsers = [...listUsers, createdUser];
     yield put({ type: SET_LIST_USERS, data: listUsers });
-    alert("User created, look for it on the last page");
+    alert("User created! Look for it on the last page");
   } catch (error) {
     console.error("Error creating user", error);
   }
@@ -77,7 +77,7 @@ function* editUser(action: any) {
       data: editedUser,
       userId,
     });
-    alert("User edited");
+    alert("User has been edited!");
   } catch (error) {
     console.error("Error editing user", error);
   }

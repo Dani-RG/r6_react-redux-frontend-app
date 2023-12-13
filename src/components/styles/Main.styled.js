@@ -7,10 +7,10 @@ export const StyledMain = styled.div`
   ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 3rem;
 
     @media (max-width: 768px) {
       flex-direction: column;
