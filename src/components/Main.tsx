@@ -28,7 +28,6 @@ const Main: React.FC = () => {
   };
 
   const arrayOfSeparatedArrays = separateIntoArraysOfFive(listUsersArray);
-  const flattenedArray = arrayOfSeparatedArrays.flat();
 
   const [pageNumber, setPageNumber] = useState(1);
   const maxPages = arrayOfSeparatedArrays.length;
@@ -51,9 +50,9 @@ const Main: React.FC = () => {
 
   return (
     <StyledMain>
-      {flattenedArray ? (
+      {listUsersArray ? (
         <ul>
-          {flattenedArray.slice(startIndex, endIndex).map((user: any) => (
+          {listUsersArray.slice(startIndex, endIndex).map((user: any) => (
             <UserCard key={user.id} user={user} />
           ))}
         </ul>

@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { IAuthRouteProps } from "../utils/interfaces";
 
-interface IAuthRouteProps {
-  children: React.ReactNode;
-}
-
-const AuthRoute: React.FunctionComponent<IAuthRouteProps> = (props) => {
+const AuthRoute: React.FC<IAuthRouteProps> = (props) => {
   const { children } = props;
   const auth = getAuth();
   const navigate = useNavigate();
@@ -18,6 +15,7 @@ const AuthRoute: React.FunctionComponent<IAuthRouteProps> = (props) => {
         setLoading(false);
       } else {
         console.log("unauthorized");
+        alert("unauthorized");
         navigate("/login");
       }
     });

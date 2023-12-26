@@ -1,3 +1,7 @@
+export interface IAuthRouteProps {
+  children: React.ReactNode;
+}
+
 export interface IListUsers {
   [x: string]: any;
   page: number;

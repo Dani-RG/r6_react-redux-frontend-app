@@ -13,7 +13,7 @@ import logoFacebook from "../images/logo_Facebook.png";
 import { StyledLoginView } from "../components/styles/LoginView.styled";
 import { StyledLoginCard } from "../components/styles/LoginCard.styled";
 
-const Login: React.FunctionComponent = (props) => {
+const Login: React.FC = () => {
   const auth = getAuth();
   const navigate = useNavigate();
   const [authing, setAuthing] = useState(false);
@@ -26,7 +26,7 @@ const Login: React.FunctionComponent = (props) => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setAuthing(false);
       });
   };
@@ -39,7 +39,7 @@ const Login: React.FunctionComponent = (props) => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setAuthing(false);
       });
   };
@@ -52,7 +52,7 @@ const Login: React.FunctionComponent = (props) => {
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
+        console.error(error);
         setAuthing(false);
       });
   };

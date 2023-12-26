@@ -15,7 +15,7 @@ import Footer from "./components/Footer";
 
 initializeApp(config.firebaseConfig);
 
-const App: React.FunctionComponent = (props) => {
+const App: React.FC = () => {
   return (
     <ThemeProvider theme={lightTheme}>
       <GlobalStyles />
