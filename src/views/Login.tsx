@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import logoGoogle from "../images/logo_Google.png";
 import logoTwitter from "../images/logo_Twitter.png";
 import logoFacebook from "../images/logo_Facebook.png";
+import logoR6 from "../images/r6_logo_colors.png";
 import { StyledLoginView } from "../components/styles/LoginView.styled";
 import { StyledLoginCard } from "../components/styles/LoginCard.styled";
 
@@ -59,17 +60,7 @@ const Login: React.FC = () => {
 
   return (
     <StyledLoginView>
-      <a
-        href={"https://clouddistrict.com/"}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <img
-          src="https://clouddistrict.com/hubfs/raw_assets/public/themes/kumo-ku/assets/images/icons/logocd.svg"
-          alt="cloudDistrictLogo"
-        />
-      </a>
-      <h3>Tech Test:</h3>
+      <img src={logoR6} alt="r6Logo" />
       <StyledLoginCard>
         <h2>Sign in</h2>
         <div>

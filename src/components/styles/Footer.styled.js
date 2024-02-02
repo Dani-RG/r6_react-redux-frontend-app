@@ -6,11 +6,6 @@ export const StyledFooter = styled.div`
   padding: 2rem;
   bottom: 0;
 
-  .footer-sections {
-    display: flex;
-    justify-content: space-between;
-  }
-
   .footer-elems {
     display: flex;
     flex-direction: column;
@@ -18,8 +13,13 @@ export const StyledFooter = styled.div`
   }
 
   .footer-icons {
-    width: 90%;
+    width: 70%;
     display: flex;
     justify-content: space-evenly;
+  }
+
+  .social-icon {
+    height: 1.5rem;
+    width: 1.5rem;
   }
 `;
