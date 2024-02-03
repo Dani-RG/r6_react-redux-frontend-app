@@ -20,15 +20,11 @@ jest.mock("react-router-dom", () => ({
 }));
 
 jest.mock("../components/styles/LoginView.styled", () => ({
-  StyledLoginView: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
+  StyledLoginView: ({ children }) => <div>{children}</div>,
 }));
 
 jest.mock("../components/styles/LoginCard.styled", () => ({
-  StyledLoginCard: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
+  StyledLoginCard: ({ children }) => <div>{children}</div>,
 }));
 
 test("shows three buttons to authenticate user", async () => {

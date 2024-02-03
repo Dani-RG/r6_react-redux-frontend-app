@@ -4,10 +4,11 @@ module.exports = {
   moduleDirectories: ["node_modules", "src"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   transform: {
-    "^.+\\.(ts|tsx|js|jsx)$": "ts-jest",
+    "^.+\\.(ts|tsx)$": "ts-jest",
+    "^.+\\.(js|jsx)$": "babel-jest",
   },
   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
-  testMatch: ["<rootDir>/src/**/*.test.{ts,tsx}"],
+  testMatch: ["<rootDir>/src/**/*.test.{ts,tsx,js,jsx}"],
   moduleNameMapper: {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "\\.(png)$": "<rootDir>/src/__tests__/__mocks__/fileMock.js",
