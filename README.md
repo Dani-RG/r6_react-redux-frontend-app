@@ -1,8 +1,8 @@
-# RETO R6
+# R6
 
 ## Descripción del Proyecto
 
-Este proyecto de desarrollo Frontend tiene como objetivo retar tu desempeño en el consumo de diversas APIs y la implementación de programación funcional. La aplicación debe ser creada en 6 días y consta de dos pantallas:
+Prueba técnica de desarrollo Frontend que tiene como objetivo comprobar tu desempeño en el consumo de diversas APIs y la implementación de programación funcional. La aplicación debe ser creada en un máximo de 5 días y consta de dos pantallas:
 
 ### `Pantalla 1: Login`
 
@@ -32,12 +32,11 @@ Lograr una distribución clara y accesible para el usuario.
 El proyecto debe ser desarrollado con las siguientes tecnolgías:
 
 1. React
-2. Redux (hooks)
-3. Redux Saga
-4. React Context
-5. Axios
-6. Styled Components
-7. React Testing Library + Jest
+2. Redux (hooks + Saga)
+3. React Context
+4. Axios
+5. Styled Components
+6. React Testing Library + Jest
 
 ## Otros Requisitos Técnicos
 

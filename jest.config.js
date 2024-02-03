@@ -10,5 +10,6 @@ module.exports = {
   testMatch: ["<rootDir>/src/**/*.test.{ts,tsx}"],
   moduleNameMapper: {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
+    "\\.(png)$": "<rootDir>/src/__tests__/__mocks__/fileMock.js",
   },
 };
