@@ -59,26 +59,28 @@ const Login: React.FC = () => {
   };
 
   return (
-    <StyledLoginView>
-      <img src={logoR6} alt="r6Logo" />
-      <StyledLoginCard>
-        <h2>Sign in</h2>
-        <div>
-          <button onClick={() => signInWithGoogle()} disabled={authing}>
-            <img src={logoGoogle} alt="logoGoogle" />
-            Continue with Google
-          </button>
-          <button onClick={() => signInWithTwitter()} disabled={authing}>
-            <img src={logoTwitter} alt="logoTwitter" />
-            Continue with Twitter
-          </button>
-          <button onClick={() => signInWithFacebook()} disabled={authing}>
-            <img src={logoFacebook} alt="logoFacebook" />
-            Continue with Facebook
-          </button>
-        </div>
-      </StyledLoginCard>
-    </StyledLoginView>
+    <div data-testid="login-view">
+      <StyledLoginView>
+        <img src={logoR6} alt="r6Logo" />
+        <StyledLoginCard>
+          <h2>Sign in</h2>
+          <div>
+            <button onClick={() => signInWithGoogle()} disabled={authing}>
+              <img src={logoGoogle} alt="logoGoogle" />
+              Continue with Google
+            </button>
+            <button onClick={() => signInWithTwitter()} disabled={authing}>
+              <img src={logoTwitter} alt="logoTwitter" />
+              Continue with Twitter
+            </button>
+            <button onClick={() => signInWithFacebook()} disabled={authing}>
+              <img src={logoFacebook} alt="logoFacebook" />
+              Continue with Facebook
+            </button>
+          </div>
+        </StyledLoginCard>
+      </StyledLoginView>
+    </div>
   );
 };
 
