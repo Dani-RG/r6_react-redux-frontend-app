@@ -49,28 +49,30 @@ const Main: React.FC = () => {
   const endIndex = pageNumber * usersPerPage;
 
   return (
-    <StyledMain>
-      {listUsersArray ? (
-        <ul>
-          {listUsersArray.slice(startIndex, endIndex).map((user: any) => (
-            <UserCard key={user.id} user={user} />
-          ))}
-        </ul>
-      ) : (
-        <p>No users available.</p>
-      )}
-      <div className="pages-nav">
-        <button className="page-arrow" onClick={handleDecrement}>
-          <IoIosArrowDropleftCircle />
-        </button>
-        <span>
-          {pageNumber} / {maxPages}
-        </span>
-        <button className="page-arrow" onClick={handleIncrement}>
-          <IoIosArrowDroprightCircle />
-        </button>
-      </div>
-    </StyledMain>
+    <div data-testid="main-comp">
+      <StyledMain>
+        {listUsersArray ? (
+          <ul>
+            {listUsersArray.slice(startIndex, endIndex).map((user: any) => (
+              <UserCard key={user.id} user={user} />
+            ))}
+          </ul>
+        ) : (
+          <p>No users available.</p>
+        )}
+        <div className="pages-nav">
+          <button className="page-arrow" onClick={handleDecrement}>
+            <IoIosArrowDropleftCircle />
+          </button>
+          <span>
+            {pageNumber} / {maxPages}
+          </span>
+          <button className="page-arrow" onClick={handleIncrement}>
+            <IoIosArrowDroprightCircle />
+          </button>
+        </div>
+      </StyledMain>
+    </div>
   );
 };
 
