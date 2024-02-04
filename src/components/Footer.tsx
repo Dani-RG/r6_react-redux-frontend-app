@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { TbWorld } from "react-icons/tb";
 import { IoLogoGithub } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaFacebook } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 import { StyledFooter } from "./styles/Footer.styled";

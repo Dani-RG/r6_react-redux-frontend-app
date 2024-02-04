@@ -54,7 +54,7 @@ const Main: React.FC = () => {
         {listUsersArray ? (
           <ul>
             {listUsersArray.slice(startIndex, endIndex).map((user: any) => (
-              <UserCard key={user.id} user={user} />
+              <UserCard key={user.id} user={user} data-testid="user-card" />
             ))}
           </ul>
         ) : (

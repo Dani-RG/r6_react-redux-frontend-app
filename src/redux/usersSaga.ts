@@ -27,6 +27,7 @@ function* getListUsers() {
     const secondList = secondResponse.data.data;
     listUsers = [...firstList, ...secondList];
     yield put({ type: SET_LIST_USERS, data: listUsers });
+    console.log(listUsers);
   } catch (error) {
     console.error("Error fetching list of users", error);
   }
