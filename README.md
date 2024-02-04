@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 
-Prueba técnica de desarrollo Frontend que tiene como objetivo comprobar tu desempeño en el consumo de diversas APIs y la implementación de programación funcional. La aplicación debe ser creada en un máximo de 5 días y consta de dos pantallas:
+Prueba técnica de desarrollo Frontend que tiene como objetivo comprobar tu desempeño en el consumo de diversas APIs y la implementación de programación funcional. La aplicación consta de dos pantallas:
 
 ### `Pantalla 1: Login`
 
