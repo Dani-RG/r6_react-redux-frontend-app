@@ -49,30 +49,38 @@ const Main: React.FC = () => {
   const endIndex = pageNumber * usersPerPage;
 
   return (
-    <div data-testid="main-comp">
-      <StyledMain>
+    <StyledMain>
+      <div data-testid="main-comp">
         {listUsersArray ? (
           <ul>
             {listUsersArray.slice(startIndex, endIndex).map((user: any) => (
-              <UserCard key={user.id} user={user} data-testid="user-card" />
+              <UserCard key={user.id} user={user} />
             ))}
           </ul>
         ) : (
           <p>No users available.</p>
         )}
         <div className="pages-nav">
-          <button className="page-arrow" onClick={handleDecrement}>
+          <button
+            className="page-arrow"
+            onClick={handleDecrement}
+            aria-label="decrement-page"
+          >
             <IoIosArrowDropleftCircle />
           </button>
           <span>
             {pageNumber} / {maxPages}
           </span>
-          <button className="page-arrow" onClick={handleIncrement}>
+          <button
+            className="page-arrow"
+            onClick={handleIncrement}
+            aria-label="increment-page"
+          >
             <IoIosArrowDroprightCircle />
           </button>
         </div>
-      </StyledMain>
-    </div>
+      </div>
+    </StyledMain>
   );
 };
 
